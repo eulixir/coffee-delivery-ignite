@@ -1,10 +1,10 @@
 import { ThemeProvider } from 'styled-components'
 import { GlobalStyles } from './styles/global'
-import { Default } from './styles/themes/default'
+import { defaultTheme } from './styles/themes/default'
 
 function App() {
   return (
-    <ThemeProvider theme={Default}>
+    <ThemeProvider theme={defaultTheme}>
       <GlobalStyles />
     </ThemeProvider>
   )
