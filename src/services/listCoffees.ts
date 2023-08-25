@@ -17,7 +17,7 @@ export interface CoffeeProps {
   id: number
   name: string
   image: string
-  price: string
+  price: number
   description: string
   tags: string[]
 }
@@ -27,7 +27,7 @@ export const coffees: CoffeeProps[] = [
     id: 1,
     name: 'Expresso Tradicional',
     image: TraditionalExpresso,
-    price: '9,90',
+    price: 9.9,
     description: 'O tradicional café feito com água quente e grãos moidos',
     tags: ['tradicional', 'com leite'],
   },
@@ -35,7 +35,7 @@ export const coffees: CoffeeProps[] = [
     id: 2,
     name: 'Expresso Americano',
     image: AmericanExpresso,
-    price: '9,90',
+    price: 9.9,
     description: 'Expresso diluído, menos intenso que o tradicional',
     tags: ['tradicional', 'com leite'],
   },
@@ -43,7 +43,7 @@ export const coffees: CoffeeProps[] = [
     id: 3,
     name: 'Expresso Cremoso',
     image: CreamExpresso,
-    price: '9,90',
+    price: 9.9,
     description: 'Café expresso tradicional com espuma cremosa',
     tags: ['tradicional', 'com leite'],
   },
@@ -51,7 +51,7 @@ export const coffees: CoffeeProps[] = [
     id: 4,
     name: 'Expresso Gelado',
     image: IcedExpresso,
-    price: '9,90',
+    price: 9.9,
     description: 'Bebida preparada com café expresso e cubos de gelo',
     tags: ['tradicional', 'com leite'],
   },
@@ -59,7 +59,7 @@ export const coffees: CoffeeProps[] = [
     id: 5,
     name: 'Café com Leite',
     image: CoffeWithMilk,
-    price: '9,90',
+    price: 9.9,
     description: 'Meio a meio de expresso tradicional com leite vaporizado',
     tags: ['tradicional', 'com leite'],
   },
@@ -67,7 +67,7 @@ export const coffees: CoffeeProps[] = [
     id: 6,
     name: 'Latte',
     image: Latte,
-    price: '9,90',
+    price: 9.9,
     description:
       'Uma dose de café expresso com o dobro de leite e espuma cremosa',
     tags: ['tradicional', 'com leite'],
@@ -76,7 +76,7 @@ export const coffees: CoffeeProps[] = [
     id: 7,
     name: 'Cappuccino',
     image: Cappuccino,
-    price: '9,90',
+    price: 9.9,
     description:
       'Bebida com canela feita de doses iguais de café, leite e espuma',
     tags: ['tradicional', 'com leite'],
@@ -85,7 +85,7 @@ export const coffees: CoffeeProps[] = [
     id: 8,
     name: 'Macchiato',
     image: Macchiato,
-    price: '9,90',
+    price: 9.9,
     description:
       'Café expresso misturado com um pouco de leite quente e espuma',
     tags: ['tradicional', 'com leite'],
@@ -94,7 +94,7 @@ export const coffees: CoffeeProps[] = [
     id: 9,
     name: 'Mocaccino',
     image: Mocaccino,
-    price: '9,90',
+    price: 9.9,
     description: 'Café expresso com calda de chocolate, pouco leite e espuma',
     tags: ['tradicional', 'com leite'],
   },
@@ -102,7 +102,7 @@ export const coffees: CoffeeProps[] = [
     id: 10,
     name: 'Chocolate Quente',
     image: HotChocolate,
-    price: '9,90',
+    price: 9.9,
     description: 'Bebida feita com chocolate dissolvido no leite quente e café',
     tags: ['especial', 'com leite'],
   },
@@ -110,7 +110,7 @@ export const coffees: CoffeeProps[] = [
     id: 11,
     name: 'Cubano',
     image: Cuban,
-    price: '9,90',
+    price: 9.9,
     description:
       'Drink gelado de café expresso com rum, creme de leite e hortelã',
     tags: ['especial', 'alcoolico', 'gelado'],
@@ -119,7 +119,7 @@ export const coffees: CoffeeProps[] = [
     id: 12,
     name: 'Havaiano',
     image: Hawaiian,
-    price: '9,90',
+    price: 9.9,
     description: 'Bebida adocicada preparada com café e leite de coco',
     tags: ['especial'],
   },
@@ -128,7 +128,7 @@ export const coffees: CoffeeProps[] = [
     id: 13,
     name: 'Arábica',
     image: Arabica,
-    price: '9,90',
+    price: 9.9,
     description: 'Bebida preparada com grãos de café árabe e especiarias',
     tags: ['especial'],
   },
@@ -136,7 +136,7 @@ export const coffees: CoffeeProps[] = [
     id: 14,
     name: 'Irlandês',
     image: Irish,
-    price: '9,90',
+    price: 9.9,
     description: 'Bebida a base de café, uísque irlandês, açúcar e chantilly',
     tags: ['especial', 'alcoolico'],
   },

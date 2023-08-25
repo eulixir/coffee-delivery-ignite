@@ -14,7 +14,7 @@ interface ShoppingCartProviderProps {
   children: React.ReactNode
 }
 
-interface ShoppingCartItems {
+export interface ShoppingCartItems {
   id: number
   quantity: number
 }
