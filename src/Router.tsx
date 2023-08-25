@@ -1,6 +1,6 @@
 import { Route, Routes } from 'react-router-dom'
-import { Checkout } from './components/Checkout'
-import { CheckoutFilled } from './components/CheckoutFilled'
+import { Checkout } from './pages/Checkout'
+import { CheckoutFilled } from './pages/CheckoutFilled'
 import { Home } from './pages/Home'
 import { DefaultLayout } from './layouts/DefaultLayout'
 
