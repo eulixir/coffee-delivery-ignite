@@ -192,6 +192,10 @@ export const BuyContainer = styled.div`
 
         & > svg {
           color: ${({ theme }) => theme['brand-purple']};
+
+          &: hover {
+            color: ${({ theme }) => theme['brand-purple-dark']};
+          }
         }
       }
     }
