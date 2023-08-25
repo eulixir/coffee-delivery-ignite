@@ -13,6 +13,10 @@ export const Container = styled.div`
     justify-content: space-between;
     flex-direction: row;
   }
+
+  @media (max-width: 600px) {
+    padding: 2rem 1rem;
+  }
 `
 
 export const LocationBox = styled.div`

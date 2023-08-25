@@ -1,7 +1,7 @@
 import * as S from './styles'
 import CoffeCup from '../../assets/coffee-cup.png'
 import { Clock, Coffee, Package, ShoppingCart } from 'phosphor-react'
-import { CoffeeList } from '../CoffeeList'
+import { CoffeeList } from '../../components/CoffeeList'
 
 export function Home() {
   return (

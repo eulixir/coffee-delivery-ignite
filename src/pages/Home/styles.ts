@@ -6,7 +6,6 @@ export const Container = styled.div``
 export const Banner = styled.div`
   width: 100vw;
   height: 544px;
-  background: gray;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -34,6 +33,25 @@ export const Banner = styled.div`
     padding-top: 5.875rem;
     padding-bottom: 7.25rem;
   }
+
+  @media (max-width: 1280px) {
+    flex-direction: column;
+    text-align: center;
+    padding: 0;
+    height: auto;
+
+    & > img {
+      width: 50%;
+      height: 50%;
+    }
+
+    & > main {
+      padding: 0;
+      display: flex;
+      align-items: space-between;
+      justify-content: space-between;
+    }
+  }
 `
 
 export const BannertText = styled.div`
@@ -57,12 +75,22 @@ export const BannertText = styled.div`
     font-weight: 400;
     line-height: 130%;
   }
+
+  @media (max-width: 1280px) {
+    & > h3 {
+      margin-bottom: 1.25rem;
+    }
+
+    & > p {
+      margin-bottom: 1.25rem;
+    }
+  }
 `
 
 export const ProsText = styled.div`
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  justify-content: center;
   flex-direction: row;
   flex-wrap: wrap;
   width: 100%;
@@ -79,7 +107,7 @@ export const ProsText = styled.div`
 
   & > span:nth-child(2) {
     margin-bottom: 1.25rem;
-    justify-content: center;
+    justify-content: flex-start;
 
     & > div {
       background: ${(props) => props.theme['base-text']};
@@ -97,7 +125,7 @@ export const ProsText = styled.div`
   }
 
   & > span:nth-child(4) {
-    justify-content: center;
+    justify-content: flex-start;
 
     & > div {
       background: ${(props) => props.theme['brand-purple']};
@@ -133,23 +161,44 @@ export const ProsText = styled.div`
       line-height: 130%;
     }
   }
+  @media (max-width: 1280px) {
+    & {
+      flex-direction: column;
+    }
+
+    & > span {
+      margin-bottom: 1.25rem;
+    }
+  }
 `
 
 export const CoffesContainer = styled.div`
-  display: flex;
-  width: 1440px;
+  display: flex-start;
+  width: 100%;
   height: 1645px;
-  padding: 32px 160px 157px 160px;
+  padding: 32px 160px 157px 130px;
   flex-direction: column;
-  align-items: flex-start;
-  gap: 54px;
+  align-items: center;
+
   flex-shrink: 0;
 
   & > h3 {
     font-family: 'Baloo 2';
+    margin-bottom: 2.25rem;
+
     font-size: 2rem;
     font-style: normal;
     font-weight: 800;
     line-height: 130%;
+  }
+
+  @media (max-width: 1280px) {
+    margin-top: 2.25rem;
+    border-top: 0.3px solid ${(props) => props.theme['base-subtitle']};
+    padding: 0;
+
+    & > h3 {
+      padding-top: 2.25rem;
+    }
   }
 `

@@ -13,7 +13,7 @@ import Macchiato from '../assets/coffees/macchiato.png'
 import Mocaccino from '../assets/coffees/mocaccino.png'
 import TraditionalExpresso from '../assets/coffees/traditional-expresso.png'
 
-interface Coffees {
+export interface CoffeeProps {
   id: number
   name: string
   image: string
@@ -22,7 +22,7 @@ interface Coffees {
   tags: string[]
 }
 
-export const coffees: Coffees[] = [
+export const coffees: CoffeeProps[] = [
   {
     id: 1,
     name: 'Expresso Tradicional',

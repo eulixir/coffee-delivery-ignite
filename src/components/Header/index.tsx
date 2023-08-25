@@ -11,7 +11,7 @@ export function Header() {
       <div>
         <S.LocationBox>
           <MapPin size={24} weight="fill" />
-          <p>Brasília, RS</p>
+          <p>Brasília, DF</p>
         </S.LocationBox>
         <S.CartButton>
           <ShoppingCart size={24} weight="fill" />
