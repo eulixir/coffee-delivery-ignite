@@ -1,24 +1,17 @@
-import { Minus, Plus, ShoppingCart } from 'phosphor-react'
+import { ShoppingCart } from 'phosphor-react'
 import { useContext } from 'react'
 import { ShoppingCartContext } from '../../contexts/ShoppingCartContext'
+import { convertToMonetary } from '../../services/convertToMonetary'
 import { CoffeeProps } from '../../services/listCoffees'
+import { Counter } from '../Counter'
 import * as S from './styles'
 
 export function CoffeeItem(coffee: CoffeeProps) {
   const { image, tags, description, price, name, id } = coffee
 
-  const { addCoffeeToShoppingCart, removeCoffeeFromShoppingCart, cartItems } =
-    useContext(ShoppingCartContext)
+  const { cartItems } = useContext(ShoppingCartContext)
 
   const coffeeQuantity = cartItems.find((item) => item.id === id)?.quantity
-
-  function countAdd() {
-    addCoffeeToShoppingCart(id)
-  }
-
-  function countRemove() {
-    removeCoffeeFromShoppingCart(id)
-  }
 
   return (
     <S.CoffeeItem>
@@ -26,24 +19,18 @@ export function CoffeeItem(coffee: CoffeeProps) {
         <img src={image} />
         <S.CoffeeTag>
           {tags.map((tag) => {
-            return <span>{tag}</span>
+            return <span key={tag}>{tag}</span>
           })}
         </S.CoffeeTag>
         <S.CoffeeName>{name}</S.CoffeeName>
         <S.CoffeeDescription>{description}</S.CoffeeDescription>
         <S.BuyContainer>
           <p>
-            R$ <span>{price}</span>
+            R$ <span>{convertToMonetary(price)}</span>
           </p>
           <div>
             <span>
-              <button>
-                <Minus size={14} weight="bold" onClick={countRemove} />
-              </button>
-              <p>{coffeeQuantity || 0}</p>
-              <button>
-                <Plus size={14} weight="bold" onClick={countAdd} />
-              </button>
+              <Counter id={id} quantity={coffeeQuantity} />
             </span>
             <button>
               <ShoppingCart size={22} weight="fill" />

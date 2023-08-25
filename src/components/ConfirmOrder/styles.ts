@@ -46,6 +46,29 @@ export const CoffeeContainer = styled.div`
   overflow-x: hidden;
 
   border-bottom: 1px solid ${({ theme }) => theme['base-button']};
+
+  &::-webkit-scrollbar {
+    width: 4px;
+  }
+
+  &::-webkit-scrollbar-track {
+    background: ${({ theme }) => theme['base-card']};
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background: ${({ theme }) => theme['base-button']};
+    border-radius: 6px;
+  }
+
+  /* & > div:last-child {
+    height: 24px;
+    border: ${({ theme }) => theme['base-card']};
+  }
+
+  & > div:last-child {
+    height: 24px;
+    border: none;
+  } */
 `
 
 export const Checkout = styled.div`

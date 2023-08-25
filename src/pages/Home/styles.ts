@@ -1,21 +1,30 @@
 import styled from 'styled-components'
 import BannerBackground from '../../assets/intro.png'
 
-export const Container = styled.div``
-
-export const Banner = styled.div`
-  width: 100vw;
+export const Container = styled.div`
   height: 544px;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  flex-direction: row;
-  padding: 0 8rem;
 
   background: url(${BannerBackground});
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
+
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  flex-direction: column;
+`
+
+export const Banner = styled.div`
+  width: 100vw;
+  height: 544px;
+  margin: 0 auto;
+  max-width: 1440px;
+
+  display: flex;
+  align-items: center;
+  flex-direction: row;
+  padding: 0 8rem;
 
   & > img {
     width: 476px;
@@ -90,7 +99,7 @@ export const BannertText = styled.div`
 export const ProsText = styled.div`
   display: flex;
   align-items: center;
-  justify-content: center;
+  margin-top: 1.25rem;
   flex-direction: row;
   flex-wrap: wrap;
   width: 100%;
@@ -174,7 +183,8 @@ export const ProsText = styled.div`
 
 export const CoffesContainer = styled.div`
   display: flex-start;
-  width: 100%;
+  max-width: 1440px;
+
   height: 1645px;
   padding: 32px 160px 157px 130px;
   flex-direction: column;
@@ -195,7 +205,6 @@ export const CoffesContainer = styled.div`
   @media (max-width: 1280px) {
     margin-top: 2.25rem;
     border-top: 0.3px solid ${(props) => props.theme['base-subtitle']};
-    padding: 0;
 
     & > h3 {
       padding-top: 2.25rem;

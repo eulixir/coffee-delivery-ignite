@@ -1,7 +1,9 @@
 import styled from 'styled-components'
 
 export const Container = styled.div`
-  width: 100vw;
+  width: 100%;
+  max-width: 1440px;
+  margin: 0 auto;
   display: flex;
   padding: 2rem 8rem;
   justify-content: space-between;

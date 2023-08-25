@@ -3,12 +3,12 @@ import styled from 'styled-components'
 export const CoffesList = styled.div`
   display: flex;
   align-items: center;
-  justify-content: space-evenly;
+
   display: flex;
   flex-wrap: wrap;
   width: 100;
 
-  max-width: 100%;
+  max-width: 1440px;
 
   & > * {
     margin-bottom: 80px;

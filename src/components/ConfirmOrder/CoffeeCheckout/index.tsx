@@ -1,24 +1,26 @@
 import { ShoppingCartItems } from '../../../contexts/ShoppingCartContext'
-import { coffees } from '../../../services/listCoffees'
+import { convertToMonetary } from '../../../services/convertToMonetary'
+import { getCoffee } from '../../../services/getCoffee'
+
 import * as S from './styles'
 
 export function CoffeeCheckout({ id, quantity }: ShoppingCartItems) {
-  const coffe = coffees.find((coffee) => coffee.id === id)
+  const coffe = getCoffee(id)!
 
   return (
     <S.CoffeCard>
       <div>
-        <div>
-          <div>
-            <img src={coffe!.image} alt={coffe!.name} />
-          </div>
-          <div>
-            <p>{coffe!.name}</p>
-          </div>
-        </div>
+        <S.CoffeImage>
+          <img src={coffe.image} alt={coffe.name} />
 
-        <p>R$ {coffe!.price * quantity}</p>
+          <div>
+            <p>{coffe.name}</p>
+          </div>
+        </S.CoffeImage>
+
+        <p>R$ {convertToMonetary(coffe.price * quantity)}</p>
       </div>
+      <div></div>
     </S.CoffeCard>
   )
 }
