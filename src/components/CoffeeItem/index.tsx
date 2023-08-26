@@ -1,5 +1,6 @@
 import { ShoppingCart } from 'phosphor-react'
 import { useContext } from 'react'
+import { NavLink } from 'react-router-dom'
 import { ShoppingCartContext } from '../../contexts/ShoppingCartContext'
 import { convertToMonetary } from '../../services/convertToMonetary'
 import { CoffeeProps } from '../../services/listCoffees'
@@ -33,7 +34,9 @@ export function CoffeeItem(coffee: CoffeeProps) {
               <Counter id={id} quantity={coffeeQuantity} />
             </span>
             <button>
-              <ShoppingCart size={22} weight="fill" />
+              <NavLink to="/checkout" title="checkout">
+                <ShoppingCart size={22} weight="fill" color={'#fff'} />
+              </NavLink>
             </button>
           </div>
         </S.BuyContainer>

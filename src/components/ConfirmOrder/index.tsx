@@ -1,4 +1,5 @@
 import { useContext } from 'react'
+import { useNavigate } from 'react-router-dom'
 import { ShoppingCartContext } from '../../contexts/ShoppingCartContext'
 import { convertToMonetary } from '../../services/convertToMonetary'
 import { getCoffee } from '../../services/getCoffee'
@@ -6,6 +7,7 @@ import { CoffeeCheckout } from './CoffeeCheckout'
 import * as S from './styles'
 
 export function ConfirmOrder() {
+  const navigate = useNavigate()
   const { cartItems } = useContext(ShoppingCartContext)
 
   const orderTotal = cartItems.reduce((acc, item) => {
@@ -15,6 +17,10 @@ export function ConfirmOrder() {
   }, 0)
 
   const deliveryFee = 3.5
+
+  function handleConfirmOrder() {
+    navigate('/order-confirmed')
+  }
 
   return (
     <S.Container>
@@ -43,7 +49,7 @@ export function ConfirmOrder() {
             <p>R$ {convertToMonetary(orderTotal + deliveryFee)}</p>
           </span>
 
-          <button>
+          <button onClick={handleConfirmOrder}>
             <p>Confirmar Pedido</p>
           </button>
         </S.Checkout>

@@ -1,6 +1,6 @@
 import { Route, Routes } from 'react-router-dom'
 import { Checkout } from './pages/Checkout'
-import { CheckoutFilled } from './pages/CheckoutFilled'
+import { OrderConfirmed } from './pages/OrderConfirmed'
 import { Home } from './pages/Home'
 import { DefaultLayout } from './layouts/DefaultLayout'
 
@@ -10,7 +10,7 @@ export function Router() {
       <Route path="/" element={<DefaultLayout />}>
         <Route path="/" element={<Home />} />
         <Route path="/checkout" element={<Checkout />} />
-        <Route path="/checkout-filled" element={<CheckoutFilled />} />
+        <Route path="/order-confirmed" element={<OrderConfirmed />} />
       </Route>
     </Routes>
   )
