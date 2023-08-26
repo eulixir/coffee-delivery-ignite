@@ -21,6 +21,15 @@ export const Container = styled.div`
   }
 `
 
+export const Separator = styled.p`
+  width: 100%;
+  height: 1px;
+  margin-bottom: 1.5rem;
+  margin-top: 1.5rem;
+  background: ${({ theme }) => theme['base-button']};
+  color: ${({ theme }) => theme['base-button']};
+`
+
 export const FinishOrder = styled.div`
   width: 100%;
   display: flex;

@@ -21,8 +21,11 @@ export function ConfirmOrder() {
       <h2>Cafés Selecionados</h2>
       <S.FinishOrder>
         <S.CoffeeContainer>
-          {cartItems.map((item) => (
-            <CoffeeCheckout key={item.id} {...item} />
+          {cartItems.map((item, idx) => (
+            <>
+              <CoffeeCheckout key={item.id} {...item} />
+              {idx !== cartItems.length - 1 && <S.Separator>.</S.Separator>}
+            </>
           ))}
         </S.CoffeeContainer>
 

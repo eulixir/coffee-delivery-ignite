@@ -1,6 +1,7 @@
 import { Minus, Plus } from 'phosphor-react'
 import { useContext } from 'react'
 import { ShoppingCartContext } from '../../contexts/ShoppingCartContext'
+import * as S from './styles'
 
 interface CounterProps {
   id: number
@@ -19,7 +20,7 @@ export function Counter({ id, quantity }: CounterProps) {
     removeCoffeeFromShoppingCart(id)
   }
   return (
-    <>
+    <S.CounterContainer>
       <button>
         <Minus size={14} weight="bold" onClick={countRemove} />
       </button>
@@ -27,6 +28,6 @@ export function Counter({ id, quantity }: CounterProps) {
       <button>
         <Plus size={14} weight="bold" onClick={countAdd} />
       </button>
-    </>
+    </S.CounterContainer>
   )
 }

@@ -6,6 +6,7 @@ interface ShoppingCartContextData {
   cartItems: ShoppingCartItems[]
   addCoffeeToShoppingCart: (id: number) => void
   removeCoffeeFromShoppingCart: (id: number) => void
+  removeItemFromCart: (id: number) => void
 }
 
 export const ShoppingCartContext = createContext({} as ShoppingCartContextData)
@@ -52,6 +53,12 @@ export function ShoppingCartProvider({ children }: ShoppingCartProviderProps) {
     return JSON.parse(localStorage.getItem('@coffee-shop/cartItems')!) || []
   }
 
+  function removeItemFromCart(id: number) {
+    const updatedShoppingCartItems = cartItems.filter((item) => item.id !== id)
+
+    SetCartItems(updatedShoppingCartItems)
+  }
+
   useEffect(() => {
     localStorage.setItem('@coffee-shop/cartItems', JSON.stringify(cartItems))
   }, [cartItems])
@@ -62,6 +69,7 @@ export function ShoppingCartProvider({ children }: ShoppingCartProviderProps) {
         cartItems,
         addCoffeeToShoppingCart,
         removeCoffeeFromShoppingCart,
+        removeItemFromCart,
       }}
     >
       {children}
