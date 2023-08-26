@@ -9,7 +9,6 @@ export const Container = styled.div`
 
   & > h2 {
     margin-bottom: 1rem;
-    margin-top: 2.5rem;
 
     color: ${({ theme }) => theme['base-subtitle']};
 

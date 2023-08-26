@@ -1,4 +1,4 @@
-import { Address } from '../../components/Address'
+import { AddressForm } from '../../components/AddressForm'
 import { ConfirmOrder } from '../../components/ConfirmOrder'
 import { Payment } from '../../components/Payment'
 import * as S from './styles'
@@ -8,7 +8,7 @@ export function Checkout() {
     <S.Container>
       <S.FinishOrder>
         <h2>Complete seu pedido</h2>
-        <Address />
+        <AddressForm />
         <Payment />
       </S.FinishOrder>
       <ConfirmOrder />
