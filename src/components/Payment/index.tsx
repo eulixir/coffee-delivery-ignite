@@ -1,13 +1,11 @@
 import { Bank, CreditCard, CurrencyDollar, Money } from 'phosphor-react'
-import { useState } from 'react'
+import { useContext } from 'react'
+import { OrderContext } from '../../contexts/OrderContext'
 import * as S from './styles'
 
 export function Payment() {
-  const [active, setActive] = useState('credit')
+  const { paymentType, handleChangePaymentType } = useContext(OrderContext)
 
-  function setActiveButton(button: string) {
-    setActive(button)
-  }
   return (
     <S.Container>
       <span>
@@ -19,22 +17,25 @@ export function Payment() {
       </span>
       <S.PaymentMethodContainer>
         <S.PaymentButton
-          onClick={() => setActiveButton('credit')}
-          isActive={active === 'credit'}
+          type="button"
+          onClick={() => handleChangePaymentType('credit-card')}
+          isActive={paymentType === 'credit-card'}
         >
           <CreditCard size={16} />
           <span>Cartão de crédito</span>
         </S.PaymentButton>
         <S.PaymentButton
-          onClick={() => setActiveButton('debit')}
-          isActive={active === 'debit'}
+          type="button"
+          onClick={() => handleChangePaymentType('debit-card')}
+          isActive={paymentType === 'debit-card'}
         >
           <Bank size={16} />
           <span>Cartão de Débito</span>
         </S.PaymentButton>
         <S.PaymentButton
-          onClick={() => setActiveButton('money')}
-          isActive={active === 'money'}
+          type="button"
+          onClick={() => handleChangePaymentType('money')}
+          isActive={paymentType === 'money'}
         >
           <Money size={16} />
           <span>Dinheiro</span>

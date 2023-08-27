@@ -47,7 +47,7 @@ export const Container = styled.div`
   }
 `
 
-export const FormContainer = styled.form`
+export const InputContainer = styled.div`
   display: flex;
   flex-direction: column;
 

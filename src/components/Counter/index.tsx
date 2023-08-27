@@ -21,11 +21,11 @@ export function Counter({ id, quantity }: CounterProps) {
   }
   return (
     <S.CounterContainer>
-      <button>
+      <button type="button">
         <Minus size={14} weight="bold" onClick={countRemove} />
       </button>
       <p>{quantity || 0}</p>
-      <button>
+      <button type="button">
         <Plus size={14} weight="bold" onClick={countAdd} />
       </button>
     </S.CounterContainer>

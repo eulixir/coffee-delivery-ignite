@@ -58,6 +58,7 @@ interface PaymentMethodButtonProps {
 
 export const PaymentButton = styled.button<PaymentMethodButtonProps>`
   display: flex;
+  cursor: pointer;
   padding: 16px;
   align-items: center;
   justify-content: center;
@@ -65,6 +66,10 @@ export const PaymentButton = styled.button<PaymentMethodButtonProps>`
   flex: 1 0 0;
   outline: none;
   border: none;
+
+  & + & {
+    margin-left: 0.75rem;
+  }
 
   width: 100%;
   height: 51px;

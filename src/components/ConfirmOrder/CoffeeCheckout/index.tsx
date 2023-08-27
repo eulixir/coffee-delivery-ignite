@@ -24,7 +24,7 @@ export function CoffeeCheckout({ id, quantity }: ShoppingCartItems) {
           <p>{name}</p>
           <div>
             <Counter quantity={quantity} id={id} />
-            <button onClick={() => removeItemFromCart(id)}>
+            <button onClick={() => removeItemFromCart(id)} type="button">
               <Trash size={16} />
               <span>Remover</span>
             </button>

@@ -1,5 +1,3 @@
-// shopping cart context provider
-
 import { createContext, useEffect, useState } from 'react'
 
 interface ShoppingCartContextData {
@@ -7,6 +5,7 @@ interface ShoppingCartContextData {
   addCoffeeToShoppingCart: (id: number) => void
   removeCoffeeFromShoppingCart: (id: number) => void
   removeItemFromCart: (id: number) => void
+  clearShoppingCart: () => void
 }
 
 export const ShoppingCartContext = createContext({} as ShoppingCartContextData)
@@ -37,6 +36,10 @@ export function ShoppingCartProvider({ children }: ShoppingCartProviderProps) {
     } else {
       SetCartItems([...cartItems, { id, quantity: 1 }])
     }
+  }
+
+  function clearShoppingCart() {
+    SetCartItems([])
   }
 
   function removeCoffeeFromShoppingCart(id: number) {
@@ -70,6 +73,7 @@ export function ShoppingCartProvider({ children }: ShoppingCartProviderProps) {
         addCoffeeToShoppingCart,
         removeCoffeeFromShoppingCart,
         removeItemFromCart,
+        clearShoppingCart,
       }}
     >
       {children}

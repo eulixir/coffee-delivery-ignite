@@ -8,6 +8,7 @@ export const CoffeeCard = styled.div`
   align-items: center;
   justify-content: space-between;
   flex-direction: row;
+  padding-right: 0.5rem;
 
   & > p {
     display: flex;

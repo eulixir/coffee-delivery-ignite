@@ -2,7 +2,35 @@ import * as S from './styles'
 import Bike from '../../assets/motoboy.png'
 import { CurrencyDollar, MapPin, Timer } from 'phosphor-react'
 
+import { useEffect, useState } from 'react'
+
+type Order = {
+  data?: {
+    cep: string
+    street: string
+    number: string
+    neighborhood: string
+    city: string
+    complement: string
+    state: string
+    paymentType: string
+  }
+}
 export function OrderConfirmed() {
+  const [order, setOrder] = useState<Order>({})
+
+  function getOrder() {
+    const data = JSON.parse(localStorage.getItem('@coffee-shop/order') || '{}')
+
+    return data
+  }
+
+  useEffect(() => {
+    const order = getOrder()
+
+    setOrder(order)
+  }, [])
+
   return (
     <S.Container>
       <h2>Uhu! Pedido confirmado</h2>
@@ -19,7 +47,9 @@ export function OrderConfirmed() {
               <span>
                 <p>Endereço em</p>
                 <p id="highlight">
-                  Rua das Margaridas, 110 - Jardim das Flores
+                  {order.data?.street}, {order.data?.number} -{' '}
+                  {order.data?.neighborhood}, {order.data?.city} -{' '}
+                  {order.data?.state}
                 </p>
               </span>
             </S.InfoContainer>
@@ -38,7 +68,7 @@ export function OrderConfirmed() {
               </div>
               <span>
                 <p>Forma de pagamento</p>
-                <p id="highlight">Cartão de crédito</p>
+                <p id="highlight">{order.data?.paymentType}</p>
               </span>
             </S.InfoContainer>
           </div>
