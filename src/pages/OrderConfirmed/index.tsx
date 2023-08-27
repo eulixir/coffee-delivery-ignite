@@ -13,8 +13,8 @@ type Order = {
     city: string
     complement: string
     state: string
-    paymentType: string
   }
+  paymentType?: string
 }
 export function OrderConfirmed() {
   const [order, setOrder] = useState<Order>({})
@@ -23,6 +23,21 @@ export function OrderConfirmed() {
     const data = JSON.parse(localStorage.getItem('@coffee-shop/order') || '{}')
 
     return data
+  }
+
+  const paymentType = paymentMapper(order.paymentType ? order.paymentType : '')
+
+  function paymentMapper(paymentType: string) {
+    switch (paymentType) {
+      case 'credit-card':
+        return 'Cartão de Crédito'
+      case 'debit-card':
+        return 'Cartão de Débito'
+      case 'money':
+        return 'Dinheiro'
+      default:
+        return ''
+    }
   }
 
   useEffect(() => {
@@ -68,7 +83,7 @@ export function OrderConfirmed() {
               </div>
               <span>
                 <p>Forma de pagamento</p>
-                <p id="highlight">{order.data?.paymentType}</p>
+                <p id="highlight">{paymentType}</p>
               </span>
             </S.InfoContainer>
           </div>

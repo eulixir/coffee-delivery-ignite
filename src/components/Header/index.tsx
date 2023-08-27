@@ -7,8 +7,10 @@ import { ShoppingCartContext } from '../../contexts/ShoppingCartContext'
 import { NavLink } from 'react-router-dom'
 
 export function Header() {
-  const { cartItems } = useContext(ShoppingCartContext)
   const [itemsInCart, setItemsInCart] = useState(0)
+  const [location, setLocation] = useState('')
+
+  const { cartItems } = useContext(ShoppingCartContext)
 
   useEffect(() => {
     const totalItemsInCart = cartItems.reduce((acc, item) => {
@@ -17,6 +19,18 @@ export function Header() {
 
     setItemsInCart(totalItemsInCart)
   }, [cartItems])
+
+  useEffect(() => {
+    const location = localStorage.getItem('@coffee-shop/location')
+
+    if (location) {
+      const parsedLocation = JSON.parse(location)
+
+      const [state, city] = parsedLocation
+
+      setLocation(`${state}, ${city}`)
+    }
+  }, [])
 
   return (
     <S.Container>
@@ -27,7 +41,7 @@ export function Header() {
       <div>
         <S.LocationBox>
           <MapPin size={24} weight="fill" />
-          <p>Brasília, DF</p>
+          <p>{location}</p>
         </S.LocationBox>
         <NavLink to="/checkout" title="checkout">
           <S.CartButton>

@@ -6,7 +6,7 @@ import { ConfirmOrder } from '../../components/ConfirmOrder'
 import { Payment } from '../../components/Payment'
 import * as zod from 'zod'
 import * as S from './styles'
-import { OrderContext, OrderProvider } from '../../contexts/OrderContext'
+import { OrderContext } from '../../contexts/OrderContext'
 import { useContext, useEffect } from 'react'
 import { getCep } from '../../services/getCep'
 import { useNavigate } from 'react-router-dom'
@@ -48,14 +48,12 @@ export function Checkout() {
     }
   }, [cep])
 
-  const { paymentType } = useContext(OrderContext)
+  const { paymentType, handleSetLocation } = useContext(OrderContext)
   const { clearShoppingCart } = useContext(ShoppingCartContext)
 
   const navigate = useNavigate()
 
   function handleCreateOrder(data: NewOrderFormData) {
-    console.log(paymentType)
-
     localStorage.setItem(
       '@coffee-shop/order',
       JSON.stringify({ data, paymentType })
@@ -76,6 +74,8 @@ export function Checkout() {
       return
     }
 
+    handleSetLocation([address.state, address.city])
+
     newOrderForm.setValue('street', address.street)
     newOrderForm.setValue('neighborhood', address.neighborhood)
     newOrderForm.setValue('city', address.city)
@@ -85,16 +85,14 @@ export function Checkout() {
 
   return (
     <S.Container onSubmit={handleSubmit(handleCreateOrder)}>
-      <OrderProvider>
-        <FormProvider {...newOrderForm}>
-          <S.FinishOrder>
-            <h2>Complete seu pedido</h2>
-            <AddressForm />
-            <Payment />
-          </S.FinishOrder>
-          <ConfirmOrder />
-        </FormProvider>
-      </OrderProvider>
+      <FormProvider {...newOrderForm}>
+        <S.FinishOrder>
+          <h2>Complete seu pedido</h2>
+          <AddressForm />
+          <Payment />
+        </S.FinishOrder>
+        <ConfirmOrder />
+      </FormProvider>
     </S.Container>
   )
 }
